@@ -1,22 +1,10 @@
 import express from 'express';
 import multer from 'multer';
-import { writeTxt, updateList } from '../services/createFile';
-
+import { uploadImg } from '../services/upload.handler';
 
 const router = express.Router();
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'uploads/' }).single('avatar');
 
-
-router.post('/upload', upload.single('photo'), (req, res) => {
-    res.send('File uploaded');
-    console.log(req.file);
-});
+router.post('/upload', upload, uploadImg);
 
 export default router;
-
-router.get('/record', async (req, res) => {
-    const user = req.query.user as string;
-    await updateList(user);
-    console.log(user);
-    res.status(201).json({ message: user });
-});
