@@ -7,7 +7,8 @@
     "node": "^23.9.0",
     "sharp": "^0.33.5",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
